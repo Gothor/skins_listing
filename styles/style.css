@@ -1,8 +1,5 @@
 html {
     padding-right: 50px;
-    /*
-    padding-bottom: 50px;
-    */
 }
 
 body {
@@ -11,39 +8,22 @@ body {
 
 .skins_listing_bar {
     margin: 0;
-    /*
-    border-top: 1px solid #ddd;
-    padding: 0;
-    */
     border-left: 1px solid #ccc;
     padding: 10px 0;
-    /*
-    height: 50px;
-    */
     overflow: auto;
 
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
-    /*
-    left: 0;
-    */
 
     box-shadow: 0 0 5px #ccc;
 
     list-style-type: none;
     background-color: white;
-
-    /*
-    text-align: center;
-    */
 }
 
 .skins_listing_bar li {
-    /*
-    display: inline-block;
-    */
     padding: 5px 10px;
 
     text-align: center;
