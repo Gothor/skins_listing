@@ -1,0 +1,43 @@
+body {
+    padding-right: 50px;
+    /*
+    padding-bottom: 50px;
+    */
+}
+
+.skins_listing_bar {
+    margin: 0;
+    border-top: 1px solid #ddd;
+    /*
+    padding: 0;
+    */
+    padding: 10px 0;
+    /*
+    height: 50px;
+    */
+    overflow: auto;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    /*
+    left: 0;
+    */
+
+    box-shadow: 0 0 5px #ddd;
+
+    list-style-type: none;
+    background-color: white;
+
+    /*
+    text-align: center;
+    */
+}
+
+.skins_listing_bar li {
+    /*
+    display: inline-block;
+    */
+    padding: 0 10px;
+}
