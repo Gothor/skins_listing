@@ -5,6 +5,10 @@ html {
     */
 }
 
+body {
+    position: relative;
+}
+
 .skins_listing_bar {
     margin: 0;
     /*
