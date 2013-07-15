@@ -10,6 +10,6 @@ delete				=1
 ov_version			="7.6.0"
 php_version			="5.1.3"
 mysql_version		="4.0"
-author				="cantico"
+author				="Rodolphe Peccatte (rodolphe_peccatte@hotmail.com)"
 
 ;*/ ?>
