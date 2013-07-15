@@ -52,6 +52,7 @@ function skins_listing_onPageRefreshed()
     $babBody->addStyleSheet($stylesheet);
 
     // Affichage
+
     skins_listing_themeList();
 }
 
