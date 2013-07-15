@@ -19,7 +19,7 @@ body {
 
     background-color: white;
 
-    font-family: Helvetica, Arial, sans-serif;
+    font: 14px/18px normal normal normal Helvetica, Arial, sans-serif;
 
     transition: all 0.2s linear;
     z-index: 10000;
