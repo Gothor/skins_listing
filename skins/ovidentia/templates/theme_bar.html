@@ -44,8 +44,10 @@
 
         (function($) {
             $(document).ready(function() {
-                if (readCookie('skins_listing_bar_close'))
+                if (readCookie('skins_listing_bar_close')) {
                     $('.skins_listing_bar').addClass('close');
+                    $('html').css({ 'margin-right': 0 });
+                }
 
                 // Cacher la barre au clic sur le bouton
 
