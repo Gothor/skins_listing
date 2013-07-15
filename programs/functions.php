@@ -126,6 +126,7 @@ class skins_listing_bab_addons_list
 			$this->addversion 		= bab_toHtml($addon->getDbVersion());
 			$this->description 		= bab_toHtml($addon->getDescription(), BAB_HTML_ALL);
 			$this->iconpath			= bab_toHtml($addon->getIconPath());
+			$this->imagepath        = bab_toHtml($addon->getImagePath());
 
 			$confurl = $addon->getConfigurationUrl();
 			if (null !== $confurl && $addon->isAccessValid()) {

@@ -2,8 +2,35 @@
     <ul class="skins_listing_bar">
         <!--#in getnext -->
             <li>
-                <a href="{ chosethemeurl }" title="{ title }"><img src="{ iconpath }" alt="{ title }"></a>
+                <a href="{ chosethemeurl }"><img src="{ iconpath }" alt="{ title }"></a>
+                <div class="description">
+                    <div class="title">{ title }</div>
+                    <!--#if imagepath -->
+                        <img class="preview" src="{ imagepath }" alt="Previsualisation de { title }" />
+                    <!--#endif imagepath -->
+                </div>
             </li>
         <!--#endin getnext -->
     </ul>
+
+    <script type="text/javascript">
+        (function($) {
+            $(document).ready(function() {
+                $('.skins_listing_bar li .description').hide();
+
+                $('.skins_listing_bar li a').hover(function(e) {
+                    $(this).siblings('.description').show();
+                }, function() {
+                    $(this).siblings('.description').hide();
+                });
+
+                $('.skins_listing_bar li a').mousemove(function(e) {
+                    $(this).siblings('.description').css({
+                        top: e.offsetY + 10,
+                        right: $(this).width() - e.offsetX - 10
+                    })
+                });
+            });
+        })(jQuery);
+    </script>
 <!--#end skins_listing -->

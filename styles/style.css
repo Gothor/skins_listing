@@ -10,25 +10,50 @@ body {
     margin: 0;
     border-left: 1px solid #ccc;
     padding: 10px 0;
-    overflow: auto;
 
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
 
-    box-shadow: 0 0 5px #ccc;
-
     list-style-type: none;
     background-color: white;
+    -webkit-box-shadow: 0 0 5px #ccc;
+    -moz-box-shadow: 0 0 5px #ccc;
+    box-shadow: 0 0 5px #ccc;
+
+    font-family: Helvetica, Arial, sans-serif;
+
+    z-index: 10000;
 }
 
 .skins_listing_bar li {
     padding: 5px 10px;
 
+    position: relative;
+
     text-align: center;
 }
 
-.skins_listing_bar img {
+.skins_listing_bar a img {
     max-width: 30px;
+}
+
+.skins_listing_bar .description {
+    display: none;
+    padding: 5px;
+
+    position: absolute;
+    top: 100%;
+    right: 100%;
+
+    background-color: white;
+    border: 1px solid #ccc;
+
+    z-index: 20;
+}
+
+.skins_listing_bar .description img {
+    max-width: 200px;
+    max-height: 200px;
 }
