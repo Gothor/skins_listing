@@ -26,9 +26,11 @@ require_once dirname(__FILE__) . '/functions.php';
 function skins_listing_upgrade($version_base, $version_ini)
 {
     global $babDB;
-    require_once $GLOBALS['babInstallPath'] . 'utilit/upgradeincl.php';
+    include_once $GLOBALS['babInstallPath'].'utilit/eventincl.php';
+    include_once $GLOBALS['babInstallPath'].'utilit/functionalityincl.php';
+    require_once $GLOBALS['babInstallPath'].'utilit/upgradeincl.php';
 
-    bab_addEventListener('bab_eventPageRefreshed', 'skins_listing_onPageRefreshed', 'addons/skins_listing/init.php', 'theme_crm_like');
+    bab_addEventListener('bab_eventPageRefreshed', 'skins_listing_onPageRefreshed', 'addons/skins_listing/init.php', 'skins_listing');
 
     return true;
 }
@@ -36,6 +38,7 @@ function skins_listing_upgrade($version_base, $version_ini)
 // Lors de la suppression du module
 function skins_listing_onDeleteAddon() {
     include_once $GLOBALS['babInstallPath'].'utilit/eventincl.php';
+    include_once $GLOBALS['babInstallPath'].'utilit/functionalityincl.php';
 
     bab_removeEventListener('bab_eventPageRefreshed', 'skins_listing_onPageRefreshed', 'addons/skins_listing/init.php');
     
