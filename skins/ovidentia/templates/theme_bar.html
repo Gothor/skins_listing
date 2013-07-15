@@ -1,21 +1,69 @@
 <!--#begin skins_listing -->
-    <ul class="skins_listing_bar">
-        <!--#in getnext -->
-            <li>
-                <a href="{ chosethemeurl }"><img src="{ iconpath }" alt="{ title }"></a>
-                <div class="description">
-                    <div class="title">{ title }</div>
-                    <!--#if imagepath -->
-                        <img class="preview" src="{ imagepath }" alt="Previsualisation de { title }" />
-                    <!--#endif imagepath -->
-                </div>
-            </li>
-        <!--#endin getnext -->
-    </ul>
+    <div class="skins_listing_bar">
+        <div class="tab"></div>
+        <ul>
+            <!--#in getnext -->
+                <li>
+                    <a href="{ chosethemeurl }"><img src="{ iconpath }" alt="{ title }"></a>
+                    <div class="description">
+                        <div class="title">{ title }</div>
+                        <!--#if imagepath -->
+                            <img class="preview" src="{ imagepath }" alt="Previsualisation de { title }" />
+                        <!--#endif imagepath -->
+                    </div>
+                </li>
+            <!--#endin getnext -->
+        </ul>
+    </div>
 
     <script type="text/javascript">
+        function createCookie(name,value,days) {
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime()+(days*24*60*60*1000));
+                var expires = "; expires="+date.toGMTString();
+            }
+            else var expires = "";
+            document.cookie = name+"="+value+expires+"; path=/";
+        }
+
+        function readCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0;i < ca.length;i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            }
+            return null;
+        }
+
+        function eraseCookie(name) {
+            createCookie(name,"",-1);
+        }
+
         (function($) {
             $(document).ready(function() {
+                if (readCookie('skins_listing_bar_close'))
+                    $('.skins_listing_bar').addClass('close');
+
+                // Cacher la barre au clic sur le bouton
+
+                $('.skins_listing_bar .tab').show().click(function() {
+                    $(this).parent().toggleClass('close');
+                    var padding = 0;
+                    if (!$(this).parent().hasClass('close')) {
+                        padding = 50;
+                        eraseCookie('skins_listing_bar_close');
+                    }
+                    else {
+                        createCookie('skins_listing_bar_close',true,1);
+                    }
+                    $('html').animate({ 'margin-right': padding + 'px' }, 200, 'linear');
+                });
+
+                // Affichage de la description au survol
+
                 $('.skins_listing_bar li .description').hide();
 
                 $('.skins_listing_bar li a').hover(function(e) {

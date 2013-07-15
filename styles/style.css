@@ -1,5 +1,5 @@
 html {
-    padding-right: 50px;
+    margin-right: 50px;
 }
 
 body {
@@ -10,13 +10,13 @@ body {
     margin: 0;
     border-left: 1px solid #ccc;
     padding: 10px 0;
+    width: 50px;
 
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
 
-    list-style-type: none;
     background-color: white;
     -webkit-box-shadow: 0 0 5px #ccc;
     -moz-box-shadow: 0 0 5px #ccc;
@@ -24,7 +24,46 @@ body {
 
     font-family: Helvetica, Arial, sans-serif;
 
+    transition: all 0.2s linear;
     z-index: 10000;
+}
+
+.skins_listing_bar.close {
+    right: -51px;
+
+    -webkit-box-shadow: 0 0 0 #ccc;
+    -moz-box-shadow: 0 0 0 #ccc;
+    box-shadow: 0 0 0 #ccc;
+}
+
+.skins_listing_bar .tab {
+    display: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-right: none;
+
+    position: absolute;
+    top: 20px;
+    right: 49px;
+
+    background-color: white;
+
+    cursor: pointer;
+}
+
+.skins_listing_bar .tab::before {
+    content: '>';
+}
+
+.skins_listing_bar.close .tab::before {
+    content: '<';
+}
+
+.skins_listing_bar ul {
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
 }
 
 .skins_listing_bar li {
