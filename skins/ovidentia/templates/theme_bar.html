@@ -68,7 +68,7 @@
 
                 $('.skins_listing_bar li .description').hide();
 
-                $('.skins_listing_bar li a').hover(function(e) {
+                $('.skins_listing_bar li a').removeAttr('title').hover(function(e) {
                     $(this).siblings('.description').show();
                 }, function() {
                     $(this).siblings('.description').hide();
