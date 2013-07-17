@@ -39,10 +39,13 @@ l'écran.
 ## Aperçus
 
 ![Barre listant les skins disponibles](http://img841.imageshack.us/img841/7236/71j6.png)
+
 Le module se présente sous la forme d'une barre latérale listant les skins installés sur le site Ovidentia.
 
 ![Barre cachée](http://img837.imageshack.us/img837/2180/c5zv.png)
+
 Il est possible de la cacher afin de travailler dans de meilleures conditions.
 
 ![Survol d'un thème](http://img5.imageshack.us/img5/4896/yrix.png)
+
 Lors du survol d'un thème, des informations concernant ce thème apparaissent.
