@@ -12,4 +12,10 @@ php_version			="5.1.3"
 mysql_version		="4.0"
 author				="Rodolphe Peccatte (rodolphe_peccatte@hotmail.com)"
 
+[addons]
+jquery              ="1.4.4.1"
+
+[functionalities]
+jquery              ="Available"
+
 ;*/ ?>
