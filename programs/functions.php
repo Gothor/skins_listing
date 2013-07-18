@@ -28,8 +28,7 @@ include_once $GLOBALS['babInstallPath']."admin/acl.php";
 include_once $GLOBALS['babInstallPath'].'utilit/addonsincl.php';
 include_once $GLOBALS['babInstallPath'].'utilit/inifileincl.php';
 
-class skins_listing_bab_addons_list
-	{
+class skins_listing_bab_addons_list {
 	var $name;
 	var $url;
 	var $desctxt;
@@ -47,8 +46,7 @@ class skins_listing_bab_addons_list
 	var $viewurl;
 	var $altbg = true;
 
-	function bab_addons_list()
-		{
+	function bab_addons_list() {
 		include_once $GLOBALS['babInstallPath'].'utilit/addonsincl.php';
 
 		$this->display_in_form = true;
@@ -79,7 +77,6 @@ class skins_listing_bab_addons_list
 	}
 
 	function getRes() {
-
 		$return = array();
 		foreach(bab_addonsInfos::getDbAddonsByName() as $name => $addon) {
 			if ($this->display($addon)) {
@@ -92,7 +89,6 @@ class skins_listing_bab_addons_list
 	}
 
 	function display($addon) {
-
 		if (!$addon) {
 			return false;
 		}
@@ -101,11 +97,8 @@ class skins_listing_bab_addons_list
 		return 'EXTENSION' === $type;
 	}
 
-	function getnext()
-		{
-
-		if( list(,$addon) = each($this->res))
-			{
+	function getnext() {
+		if( list(,$addon) = each($this->res)) {
 			$this->altbg = !$this->altbg;
 
 			/*@var $addon bab_addonInfos */
@@ -141,22 +134,20 @@ class skins_listing_bab_addons_list
 				$this->upgradeurl = false;
 			}
 
-			if ('THEME' === $addon->getAddonType() && $addon->isAccessValid() && $GLOBALS['babSkin'] !== $addon->getName())
-			{
+			if ('THEME' === $addon->getAddonType() && $addon->isAccessValid() && $GLOBALS['babSkin'] !== $addon->getName()) {
 				$this->chosethemeurl = bab_toHtml($GLOBALS['babUrlScript']."?tg=addons&idx=chosetheme&item=".$addon->getId());
 			} else {
 				$this->chosethemeurl = false;
 			}
 
 			return true;
-			}
+		}
 
 		return false;
-		}
 	}
+}
 
 class skins_listing_bab_addons_list_theme extends skins_listing_bab_addons_list {
-
 	function skins_listing_bab_addons_list_theme() {
 		parent::bab_addons_list();
 
@@ -169,10 +160,33 @@ class skins_listing_bab_addons_list_theme extends skins_listing_bab_addons_list 
 	}
 }
 
-function skins_listing_themeList()
-	{
+function skins_listing_themeList() {
 	global $babBody;
 
 	$temp = new skins_listing_bab_addons_list_theme();
 	$babBody->babecho(bab_printTemplate($temp, "addons/skins_listing/theme_bar.html", "skins_listing"));
-	}
+}
+
+function skins_listing_chosetheme() {
+    require_once $GLOBALS['babInstallPath'].'utilit/urlincl.php';
+    require_once $GLOBALS['babInstallPath'].'utilit/skinincl.php';
+    global $babDB;
+    global $babBody;
+
+    $row = bab_addonsInfos::getDbRow(bab_rp('id'));
+
+    $skin = new bab_skin($row['title']);
+    if (!$skin->isAccessValid()) {
+        return;
+    }
+
+    $arr = $skin->getStyles();
+
+    $babDB->db_query('UPDATE bab_sites SET skin='.$babDB->quote($skin->getName()).', style='.$babDB->quote(reset($arr)).'  WHERE name='.$babDB->quote($GLOBALS['babSiteName']));
+
+    if (isset($_SERVER['HTTP_REFERER'])) {
+        header('Location: '.$_SERVER['HTTP_REFERER']);
+    } else {
+        header('Location: index.php');
+    }
+}
