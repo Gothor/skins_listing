@@ -2,7 +2,7 @@
 
 [general]
 name				="skins_listing"
-version				="1.0"
+version				="1.1"
 addon_type			="EXTENSION"
 encoding			="UTF-8"
 mysql_character_set_database="latin1,utf8"
