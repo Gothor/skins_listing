@@ -71,6 +71,12 @@ body {
     max-width: 30px;
 }
 
+.skins_listing_bar a.config {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .skins_listing_bar .description {
     display: none;
     padding: 5px;
