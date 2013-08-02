@@ -31,7 +31,7 @@ body {
 
 .skins_listing_bar .tab {
     display: none;
-    padding: 5px 10px;
+    padding: 5px;
     border: 1px solid #ccc;
     border-right: none;
 
