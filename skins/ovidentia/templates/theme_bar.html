@@ -8,6 +8,10 @@
                         <img src="{ iconpath }" alt="{ title }">
                     </a>
                     
+                    <a href="{ upgradeurl }" class="install" title="Installer ou mettre &agrave; jour le skin { title }">
+                        <img src="{ babInstallPath }skins/ovidentia/templates/addons/skins_listing/install.gif" alt="Installation" />
+                    </a>
+
                     <!--#if configurationurl -->
                         <a href="{ configurationurl }" class="config" title="Configuration du skin { title }">
                             <img src="{ babInstallPath }skins/ovidentia/templates/addons/skins_listing/settings.png" alt="Configuration" />
@@ -82,7 +86,7 @@
 
                 $('.skins_listing_bar li .description').hide();
 
-                $('.skins_listing_bar li a').not('.config').removeAttr('title').hover(function(e) {
+                $('.skins_listing_bar li a').not('.config, .install').removeAttr('title').hover(function(e) {
                     $(this).siblings('.description').show();
                 }, function() {
                     $(this).siblings('.description').hide();

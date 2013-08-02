@@ -77,6 +77,12 @@ body {
     right: 0;
 }
 
+.skins_listing_bar a.install {
+    position: absolute;
+    top: 16px;
+    right: 0;
+}
+
 .skins_listing_bar .description {
     display: none;
     padding: 5px;
