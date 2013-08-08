@@ -1,103 +1,109 @@
 html {
-    margin-right: 50px;
+    margin-right: 50px !important;
 }
 
 body {
-    position: relative;
+    position: relative !important;
 }
 
 .skins_listing_bar {
-    margin: 0;
-    border-left: 1px solid #ccc;
-    padding: 10px 0;
-    width: 50px;
+    margin: 0 !important;
+    border-left: 1px solid #ccc !important;
+    padding: 10px 0 !important;
+    width: 50px !important;
 
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
 
-    background-color: white;
+    background-color: white !important;
 
-    font: 14px/18px normal normal normal Helvetica, Arial, sans-serif;
+    font: 14px/18px normal normal normal Helvetica, Arial, sans-serif !important;
 
-    transition: all 0.2s linear;
-    z-index: 10000;
+    transition: all 0.2s linear !important;
+    z-index: 10000 !important;
 }
 
 .skins_listing_bar.close {
-    right: -51px;
+    right: -51px !important;
 }
 
 .skins_listing_bar .tab {
-    display: none;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-right: none;
+    display: none !important;
+    padding: 5px !important;
+    border: 1px solid #ccc !important;
+    border-right: none !important;
 
-    position: absolute;
-    top: 20px;
-    right: 50px;
+    position: absolute !important;
+    top: 20px !important;
+    right: 50px !important;
 
-    background-color: white;
+    background-color: white !important;
 
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 .skins_listing_bar .tab::before {
-    content: '>';
+    content: '>' !important;
 }
 
 .skins_listing_bar.close .tab::before {
-    content: '<';
+    content: '<' !important;
 }
 
 .skins_listing_bar ul {
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
 
-    list-style-type: none;
+    overflow: hidden !important;
+
+    list-style-type: none !important;
 }
 
 .skins_listing_bar li {
-    padding: 5px 10px;
+    padding: 5px 10px !important;
 
-    position: relative;
+    position: relative !important;
 
-    text-align: center;
+    background: none !important;
+
+    text-align: center !important;
 }
 
 .skins_listing_bar a img {
-    max-width: 30px;
+    max-width: 30px !important;
+
+    vertical-align: baseline !important;
 }
 
 .skins_listing_bar a.config {
-    position: absolute;
-    top: 0;
-    right: 0;
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
 }
 
 .skins_listing_bar a.install {
-    position: absolute;
-    top: 16px;
-    right: 0;
+    position: absolute !important;
+    top: 16px !important;
+    right: 0 !important;
 }
 
 .skins_listing_bar .description {
-    display: none;
-    padding: 5px;
+    display: none !important;
+    padding: 5px !important;
 
-    position: absolute;
-    top: 100%;
-    right: 100%;
+    position: absolute !important;
+    top: 100% !important;
+    right: 100% !important;
 
-    background-color: white;
-    border: 1px solid #ccc;
+    background-color: white !important;
+    border: 1px solid #ccc !important;
 
-    z-index: 20;
+    z-index: 20 !important;
 }
 
 .skins_listing_bar .description img {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 200px !important;
+    max-height: 200px !important;
 }
