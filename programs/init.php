@@ -54,6 +54,11 @@ function skins_listing_onPageRefreshed()
     $stylesheet = 'addons/skins_listing/style.css';
     $babBody->addStyleSheet($stylesheet);
 
+    // Inclusion de jQuery
+
+    $jquery = bab_functionality::get('jquery');
+    $jquery->includeCore();
+
     // Affichage
 
     skins_listing_themeList();
