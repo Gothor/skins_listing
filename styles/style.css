@@ -107,3 +107,9 @@ body {
     max-width: 200px !important;
     max-height: 200px !important;
 }
+
+@media print {
+    .skins_listing_bar {
+        display: none;
+    }
+}
