@@ -82,11 +82,7 @@ class skins_listing_bab_addons_list_theme {
                 $this->configurationurl    = false;
             }
 
-			if ($addon->isUpgradable()) {
-				$this->upgradeurl = bab_toHtml($GLOBALS['babUrlScript']."?tg=addons&idx=upgrade&item=".$addon->getId());
-			} else {
-				$this->upgradeurl = false;
-			}
+    		$this->upgradeurl = bab_toHtml($GLOBALS['babUrlScript']."?tg=addons&idx=upgrade&item=".$addon->getId());
 
             return true;
         }
