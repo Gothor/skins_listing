@@ -1,6 +1,7 @@
 <!--#begin skins_listing -->
     <div class="skins_listing_bar">
         <div class="tab"></div>
+        <div class="scroll"></div>
         <ul>
             <!--#in getnext -->
                 <li>
@@ -97,6 +98,70 @@
                         top: e.offsetY + 10,
                         right: $(this).width() - e.offsetX - 10
                     })
+                });
+                
+                // Ajout du scroll
+                
+                var minHeight = 0;
+                $('.skins_listing_bar').css('overflow', 'visible');
+                
+                var moveScroll = function(newTop) {
+                    var scroll = $('.skins_listing_bar .scroll');
+                
+                    if (newTop < 0)
+                        newTop = 0;
+                    else if (newTop + scroll.height() > window.innerHeight)
+                        newTop = window.innerHeight - scroll.height();
+                        
+                    scroll.css('top', newTop);
+                    
+                    // On bouge la liste
+                    
+                    var newTopList = -newTop * (minHeight - window.innerHeight) / (window.innerHeight - scroll.height());
+                    $('.skins_listing_bar ul').css('top', newTopList);
+                };
+                
+                $('.skins_listing_bar').on('mousewheel', function(e) {
+                    e.preventDefault();
+                
+                    moveScroll($(this).find('.scroll').position().top + 10 * (e.originalEvent.wheelDelta >= 0 ? -1 : 1));
+                });
+                
+                $(window).resize(function() {
+                    // On réadapte la taille du scroll selon la taille de la fenêtre
+                    var scroll = $('.skins_listing_bar .scroll');
+                    var list = $('.skins_listing_bar ul');
+                    minHeight = parseInt($('.skins_listing_bar').css('padding-top'), 10) + list.height();
+                    
+                    if (window.innerHeight < minHeight) {
+                        scroll.css('height', window.innerHeight * window.innerHeight / minHeight);
+                    }
+                    else {
+                        scroll.css('height', 0);
+                    }
+                    
+                    // Gestion de la collision avec le bas de la fenêtre
+                    
+                    if (scroll.position().top != 0 && scroll.position().top + scroll.height() > window.innerHeight) {
+                        moveScroll(window.innerHeight - scroll.height());
+                    }
+                    if (scroll.height() == 0) {
+                        list.css('top', 0);
+                    }
+                });
+                
+                $('.skins_listing_bar .scroll').on('mousedown', function(e) {
+                    var y = e.clientY;
+                    var top = $(this).position().top;
+                    minHeight = parseInt($('.skins_listing_bar').css('padding-top'), 10) + $('.skins_listing_bar ul').height();
+                    
+                    $(document).on('mousemove', function(e) {
+                        moveScroll(top + (e.clientY - y));
+                    });
+                });
+                
+                $(document).on('mouseup', function() {
+                    $(document).off('mousemove');
                 });
             });
         })(jQuery);

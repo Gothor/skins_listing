@@ -16,6 +16,7 @@ body {
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
+    overflow: auto;
 
     background-color: white !important;
 
@@ -52,10 +53,25 @@ body {
     content: '<' !important;
 }
 
+.skins_listing_bar .scroll {
+    border-radius: 5px;
+    width: 10px;
+    height: 0;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    background-color: #ddd;
+    
+    z-index: 10;
+}
+
 .skins_listing_bar ul {
     margin: 0 !important;
     padding: 0 !important;
 
+    position: relative;
     overflow: visible !important;
 
     list-style-type: none !important;
