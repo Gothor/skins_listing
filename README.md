@@ -7,6 +7,14 @@ Il servira principalement aux intégrateurs de skins pour Ovidentia ou aux
 administrateurs souhaitant modifier leur skin.
 Il permet de passer rapidement d'un skin à un autre à tout instant.
 
+	:::c
+	#include <stdlib.h>
+	#include <stdio.h>
+	
+	int main(int argc, char* argv[]) {
+        return 0;
+    }
+
 ## Téléchargement
 
 Rendez-vous sur la page de téléchargements
